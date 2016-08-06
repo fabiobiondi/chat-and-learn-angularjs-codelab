@@ -5,14 +5,14 @@ Cartella: `/3.component-based-app`
 ---
 
 ### Obiettivi
+In questa sessione creeremo due direttive, un chart e una tabella di dati, allo scopo di illustrare i seguenti concetti:
 
-* custom services
 * custom directives (scope isolation, controllerAS e bindToController)
 * utilizzo dei watcher in directives
 * integrazione plugin 3rd party (HighChart)
 * comunicazione tra direttive
 * ng-repeat nidificati
-
+* custom services
 
 ---
 
