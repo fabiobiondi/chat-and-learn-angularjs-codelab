@@ -1,4 +1,4 @@
-## CHAT AND LEARN - CodeLab
+## CHAT AND LEARN - AngularJS CodeLab
 
 Questo repository contiene il codice sorgente dei tre webinars introduttivi su AngularJS
 
@@ -13,13 +13,14 @@ Language: **italian**
 
 ---
 
-## ASSETS
+## MATERIALE
 
 ### 1. Introduzione ad AngularJS
 
 Video: [Introduzione ad AngularJS](https://www.youtube.com/watch?v=2XMjpY9nauc)
 
 Cartella: `1-static-template`
+
 Cartella: `2-angular-app`
 
 
