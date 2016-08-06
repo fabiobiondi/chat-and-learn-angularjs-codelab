@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" ng-app="demoApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Angular CodeLab</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/core.css">
+
+  <!-- vendors -->
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <!-- core -->
+  <script src="app/app.js"></script>
+  <script src="app/router.js"></script>
+  <!-- views -->
+  <script src="app/views/homepage/HomepageCtrl.js"></script>
+  <script src="app/views/news/NewsCtrl.js"></script>
+  <script src="app/views/news/NewsDetailsCtrl.js"></script>
+  <script src="app/views/reports/ReportCtrl.js"></script>
+  <script src="app/views/contacts/ContactsCtrl.js"></script>
+  <!-- components -->
+  <script src="app/components/navbar/NavigationBar.js"></script>
+  <script src="app/components/jumbotron/Jumbotron.js"></script>
+  <script src="app/components/post-list/PostList.js"></script>
+  <script src="app/components/table-data/TableData.js"></script>
+  <script src="app/components/chart/Chart.js"></script>
+  <script src="app/components/footer/AppFooter.js"></script>
+  <!-- services -->
+  <script src="app/services/ReportService.js"></script>
+  <script src="app/services/NewsService.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <navigation-bar></navigation-bar>
+    <div ng-view></div>
+    <app-footer></app-footer>
+  </div>
+
+</body>
+</html>

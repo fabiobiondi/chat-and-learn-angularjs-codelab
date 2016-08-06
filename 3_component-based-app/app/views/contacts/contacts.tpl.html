@@ -1,0 +1,35 @@
+<div class="container">
+    <hr />
+    <!-- alert msg -->
+    <div class="alert alert-danger" ng-show="ctrl.errorMsg">
+        Wrong email and password
+    </div>
+
+    <!-- Form  -->
+    <form name="ctrl.form">
+        <div class="form-group">
+            <label >Email address</label>
+            <input type="email"
+                   ng-model="ctrl.email"
+                   placeholder="Enter email"
+                   class="form-control"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label>message</label>
+            <textarea cols="30" rows="10"
+                      class="form-control"
+                      ng-model="ctrl.message"
+                      min-length="5"
+                      required>
+            </textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary"
+                ng-click="ctrl.send()"
+                ng-disabled="ctrl.form.$invalid">Send</button>
+    </form>
+
+
+</div>

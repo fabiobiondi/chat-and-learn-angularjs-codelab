@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="col-lg-4" ng-repeat="item in ctrl.items | filter: ctrl.search">
+    <h2>{{item.title}}</h2>
+    <p>{{item.body}}</p>
+    <p><a class="btn btn-primary" ng-href="#/news/{{item.id}}" role="button">View details &raquo;</a></p>
+  </div>
+</div>

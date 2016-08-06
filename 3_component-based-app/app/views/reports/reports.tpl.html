@@ -1,0 +1,15 @@
+<div class="container">
+<chart config="ctrl.chartData"></chart>
+
+<h2 class="sub-header">Data table</h2>
+
+<table-data
+  data="ctrl.tableData"
+  on-select-row="ctrl.updateChart($index, $item)"
+  active-index="ctrl.activeIndex"></table-data>
+
+<button
+  class="btn"
+  ng-show="ctrl.chartData.series.length === 1"
+  ng-click="ctrl.viewAll()">View all</button>
+</div>

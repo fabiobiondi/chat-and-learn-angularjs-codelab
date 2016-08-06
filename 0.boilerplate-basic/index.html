@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" ng-app="demoApp">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Basic Boilerplate</title>
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/core.css">
+
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="app/App.js"></script>
+  <script src="app/MainCtrl.js"></script>
+</head>
+
+<body class="well">
+
+  <!-- Main Controller -->
+  <div ng-controller="MainCtrl as ctrl">
+    <h2>{{ctrl.msg}}</h2>
+  </div>
+
+</body>
+</html>

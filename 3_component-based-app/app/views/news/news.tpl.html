@@ -1,0 +1,13 @@
+<div class="container">
+
+    <h2>NEWS</h2>
+
+    <input type="search" class="form-control"
+           ng-model="ctrl.search"
+           placeholder="search something">
+
+    <hr>
+
+    <post-list items="ctrl.news" search="ctrl.search"></post-list>
+
+</div>

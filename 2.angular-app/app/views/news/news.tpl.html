@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h2>NEWS</h2>
+
+    <!-- SEARCH -->
+    <input type="search" class="form-control"
+           ng-model="ctrl.search"
+           placeholder="search something">
+
+    <hr>
+
+    <!-- NEWS LIST -->
+    <div class="row">
+      <div class="col-lg-4" ng-repeat="item in ctrl.news | filter: ctrl.search">
+        <h2>{{item.title}}</h2>
+        <p>{{item.body}}</p>
+        <p><a class="btn btn-primary" ng-href="#/news/{{item.id}}" role="button">View details &raquo;</a></p>
+      </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,15 @@
+<!-- Jumbotron -->
+<div class="jumbotron">
+  <h1>{{ctrl.title}}</h1>
+  <p class="lead">{{ctrl.description}}</p>
+  <p><a class="btn btn-lg btn-success" ng-href="#{{ctrl.link}}" role="button">{{ctrl.button}}</a></p>
+</div>
+
+<!-- Example row of columns -->
+<div class="row">
+  <div class="col-lg-4" ng-repeat="item in ctrl.news">
+    <h2>{{item.title}}</h2>
+    <p>{{item.body}}</p>
+    <p><a class="btn btn-primary" ng-href="#/news/{{item.id}}" role="button">View details &raquo;</a></p>
+  </div>
+</div>
