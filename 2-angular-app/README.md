@@ -388,13 +388,10 @@ angular.module('demoApp')
 ---
 
 
-### PROSSIMI STEP
+### PROSSIMO STEP
 
-* Refactoring dell'attuale versione: approccio component-based
-* Suddividere Navigation Bar e Footer in componenti (custom  directives)
-* Ripulire DOM e controller delle view 'home' e 'news' suddividendo il codice in direttive
-* Suddividere le richieste al server (REST) in servizi (custom services)
-* Creare la pagina Report con grafici e tabelle:
-  * direttive con integrazione 3rd party libraries
-  * comunicazione tra direttive
-  * ng-repeat nidificati
+* Refactoring dell'attuale versione
+* approccio component-based in AngularJS
+* organizzazione layout in direttive
+* utilizzo di custom directives (scope isolation, controllerAS e bindToController)
+* utilizzo di custom services per la gestione dei dati hard coded e la comunicazione con il server
