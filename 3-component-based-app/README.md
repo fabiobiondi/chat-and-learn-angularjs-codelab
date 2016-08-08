@@ -1,7 +1,5 @@
 # From Angular Spaghetti to Components
 
-## Istruzioni per convertire un'applicazione Angular da view/controllers ad un approccio component-based
-
 Template di partenza -> cartella: `/2.angular-app`
 Template finale -> cartella: `/3.component-based-app`
 
@@ -30,7 +28,6 @@ Rimuovere il codice HTML del footer da `index.html` e creare una direttiva <app-
 <footer class="footer">
   <p>&copy; 2016 Company, Inc. Inspired by this <a href="http://getbootstrap.com/examples/justified-nav/#">Bootstrap 3 Template</a></p>
 </footer>
-
 ```
 
 `components/footer/AppFooter.js`:
@@ -73,7 +70,7 @@ e inserire la direttiva al posto del precedente DOM:
 
 ### `<navigation-bar>` component
 
-Spostare il markup della navigationbar da `index.html` al template di una direttiva custom:
+Spostare il markup della navigation bar da `index.html` al template di una direttiva custom:
 
 `components/navbar/navigation.tpl.html`:
 
@@ -93,7 +90,10 @@ Spostare il markup della navigationbar da `index.html` al template di una dirett
 ```
 
 
-Creare la direttiva `navigationBar` nel quale sarà inserito anche il codice per la gestione dello stato `active`, che in precedenza era incluso in `app.js`:
+Creare la direttiva `navigationBar` nel quale sarà inserito  il codice per la gestione dello stato `active`.
+
+> E' quindi necessario eliminare il controller `NavBarCtrl` presente in `app.js` creato in precedenza!
+
 
 `components/navbar/NavigationBar.js`:
 
@@ -115,7 +115,10 @@ angular.module('demoApp')
 })
 ```
 
-> E' quindi necessario eliminare il controller 'NavBarCtrl' presente in `app.js` creato in precedenza!
+`bindTocontroller`: le proprietà del componente sono legate al controller e non allo scope.
+
+> In the `http` callback, `this` binds to the global object 'window' (infact, this `this == window` would be true) so we use `bind(this)` to change the context to the controller.
+
 
 
 Includere il file della direttiva in `index.html`:
@@ -163,6 +166,7 @@ angular.module('demoApp')
       buttonLink: '/news'
     };
   }
+
   this.getPosts = function() {
     return $http.get(URL + '/posts/');
   }
@@ -177,7 +181,7 @@ angular.module('demoApp')
 ```
 
 
-## HOMEPAGE Refactoring
+## HOMEPAGE Update
 
 Modificare il controller della Home eliminando il codice precedente e utilizzando il nuovo service `NewsService`:
 
@@ -237,7 +241,8 @@ angular.module('demoApp')
 })
 ```
 
-#### Utilizzare la direttiva `<jumbotron>`:
+> scope prefix `@` -> 1-way-binding (aka 'string method): utilizzato per accedere a stringhe definite al di fuori della direttiva.
+
 
 
 Includere il file della direttiva in `index.html`:
@@ -246,7 +251,7 @@ Includere il file della direttiva in `index.html`:
 <script src="app/components/jumbotron/Jumbotron.js"></script>
 ```
 
-e inserire la direttiva al posto del precedente DOM in 'app/views/homepage/homepage.tpl.html':
+e inserire il tag `<jumbotron>` al posto del precedente DOM in 'app/views/homepage/homepage.tpl.html':
 
 ```html
 <!-- Jumbotron -->
@@ -260,11 +265,12 @@ e inserire la direttiva al posto del precedente DOM in 'app/views/homepage/homep
 
 
 
+
 ---
 
 ### <post-list> (news) component:
 
-Stesse operazioni effettuate per il componente <jumbotron> allo scopo di creare un componente che gestisca la visualizzazione delle news in homepage..
+Stesse operazioni effettuate per il componente <jumbotron> allo scopo di creare un componente che gestisca la visualizzazione delle news in homepage.
 Allo scopo di utilizzare la stessa direttiva anche nella view "News" verrà inoltre inserito il supporto alla proprietà `search` al fine di poter passare la stringa di ricerca e filtrare i dati qualora fosse necessario.
 
 
@@ -291,8 +297,8 @@ angular.module('demoApp')
     restrict: 'EA',
     templateUrl: 'app/components/post-list/post-list.tpl.html',
     scope: {
-      items: '=',
-      search: '='
+      items: '<',
+      search: '<'
     },
     controllerAs: 'ctrl',
     bindToController: true,
@@ -302,7 +308,9 @@ angular.module('demoApp')
   }
 })
 ```
+> **scope prefix `=` -> 2-way binding**: il bind con l'oggetto passato alla direttiva è bidirezionale.
 
+> Da Angular 1.5 è disponibile il **prefisso `<` per abilitare il one-way-binding** (no watcher)
 
 Includere il file della direttiva in `index.html`:
 
@@ -320,13 +328,14 @@ Di seguito l'HTML di `homepage.tpl.html` definitivo
 
 ```
 
+> TIP: invece di passare ogni singola proprietà di <jumbotron> si potrebbe passare l'intero oggetto: `<jumbotron  link="{{ctrl.introObj}}"></jumbotron>`. In questo scenario è preferibile l'utilizzo del prefisso `<`
 
 
-## NEWS Refactoring
+## NEWS Update
 
 Nella view e nel template della sezione News si utilizzano direttive e servizi creati nei precedenti step:
 
-Il controller della view inietta ora il servizio NewsService:
+Il controller della view inietta e utilizza il servizio `NewsService`:
 
 `components/news/NewsCtrl.js`:
 
@@ -359,3 +368,13 @@ Il template HTML della sezione News può includere la direttiva `<post-link>` al
 </div>
 
 ```
+
+---
+
+### PROSSIMO STEP
+
+* utilizzo dei watcher in directives
+* integrazione plugin 3rd party (HighChart)
+* comunicazione tra direttive
+* ng-repeat nidificati
+* utilizzo di custom service
