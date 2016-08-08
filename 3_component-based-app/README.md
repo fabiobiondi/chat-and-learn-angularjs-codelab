@@ -15,16 +15,14 @@ Template finale -> cartella: `/3.component-based-app`
 * utilizzo di custom directives (scope isolation, controllerAS e bindToController)
 * utilizzo di custom services per la gestione dei dati hard coded e la comunicazione con il server
 
+
 ---
 
 ### `<app-footer>` component
 
 
+Rimuovere il codice HTML del footer da `index.html` e creare una direttiva <app-footer>:
 
-Rimuovere il codice HTML del footer da `index.html` e creare una direttiva <app-footer>
-
-
-`app/router.js`
 
 `components/footer/app-footer.tpl.html`:
 
@@ -117,6 +115,7 @@ angular.module('demoApp')
 })
 ```
 
+> E' quindi necessario eliminare il controller 'NavBarCtrl' presente in `app.js` creato in precedenza!
 
 
 Includere il file della direttiva in `index.html`:
@@ -144,7 +143,8 @@ Ecco come si presenterà ora il DOM del file `index.html`:
 ---
 ### `NewsService`
 
-Eliminare i dati hard coded e richieste http dai controller e spostarle in servizi ad hoc:
+Eliminare i dati hard coded e richieste XHR dal controller da `HomePageCtrl` e spostarle in un servizio ad hoc.
+Includere e spostare inoltre il servizio `URL` (`value`) presente in `app.js`:
 
 `services/NewsService.js`:
 
@@ -178,6 +178,24 @@ angular.module('demoApp')
 
 
 ## HOMEPAGE Refactoring
+
+Modificare il controller della Home eliminando il codice precedente e utilizzando il nuovo service `NewsService`:
+
+```javascript
+angular.module('demoApp')
+
+.controller('HomePageCtrl', function(NewsService) {
+  //jumbotron data
+  this.introObj = NewsService.getIntro();
+  // news data
+  NewsService.getPosts()
+      .then(function(result){
+        this.news = result.data.slice(0, 3);
+      }.bind(this));
+});
+
+```
+
 
 ### `<jumbotron`> component
 
@@ -221,22 +239,6 @@ angular.module('demoApp')
 
 #### Utilizzare la direttiva `<jumbotron>`:
 
-Modificare il controller della Home eliminando il codice precedente e utilizzando il nuovo service `NewsService`:
-
-```javascript
-angular.module('demoApp')
-
-.controller('HomePageCtrl', function(NewsService) {
-  //jumbotron data
-  this.introObj = NewsService.getIntro();
-  // news data
-  NewsService.getPosts()
-      .then(function(result){
-        this.news = result.data.slice(0, 3);
-      }.bind(this));
-});
-
-```
 
 Includere il file della direttiva in `index.html`:
 
@@ -312,13 +314,8 @@ e inserire la direttiva `<post-list>` proprio sotto `<jumbotron>`.
 Di seguito l'HTML di `homepage.tpl.html` definitivo
 
 ```html
-<jumbotron
-  title="{{ctrl.introObj.title}}"
-  description="{{ctrl.introObj.description}}"
-  button="{{ctrl.introObj.button}}"
-  link="{{ctrl.introObj.buttonLink}}"
-></jumbotron>
 
+<jumbotron ...></jumbotron>
 <post-list items="ctrl.news"></post-list>
 
 ```
