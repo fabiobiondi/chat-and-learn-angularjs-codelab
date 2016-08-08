@@ -4,8 +4,8 @@ angular.module('demoApp')
     restrict: 'EA',
     templateUrl: 'app/components/post-list/post-list.tpl.html',
     scope: {
-      items: '=',
-      search: '='
+      items: '<',
+      search: '<'
     },
     controllerAs: 'ctrl',
     bindToController: true,
