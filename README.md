@@ -15,7 +15,7 @@ Language: **italian**
 
 ## MATERIALE
 
-### 1. Introduzione ad AngularJS
+### Step 1
 
 Video: [Introduzione ad AngularJS](https://www.youtube.com/watch?v=2XMjpY9nauc)
 
@@ -24,16 +24,16 @@ Source static template: `1-static-template`
 Source Angular App: `2-angular-app`
 
 
-### 2. Applicazioni component-based in AngularJS
+### Step 2
 
-Video: presto disponibile
+Video: [Applicazioni component-based in AngularJS](https://www.youtube.com/watch?v=f2vtYlUdMu8 )
 
 Source e DOC: `3-component-based-app`
 
 
-### 3. custom directives (sezione 'Report')
+### Step 3
 
-Video: presto disponibile
+Video: custom directives (sezione 'Report') - presto disponibile
 
 Source: `3-component-based-app`
 
