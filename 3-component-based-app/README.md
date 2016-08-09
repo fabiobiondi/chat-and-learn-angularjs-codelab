@@ -270,7 +270,7 @@ e inserire il tag `<jumbotron>` al posto del precedente DOM in 'app/views/homepa
 
 ### <post-list> (news) component:
 
-Stesse operazioni effettuate per il componente <jumbotron> allo scopo di creare un componente che gestisca la visualizzazione delle news in homepage.
+Stesse operazioni effettuate per il componente `<jumbotron>` allo scopo di creare un componente che gestisca la visualizzazione delle news in homepage.
 Allo scopo di utilizzare la stessa direttiva anche nella view "News" verrà inoltre inserito il supporto alla proprietà `search` al fine di poter passare la stringa di ricerca e filtrare i dati qualora fosse necessario.
 
 
@@ -322,20 +322,22 @@ e inserire la direttiva `<post-list>` proprio sotto `<jumbotron>`.
 Di seguito l'HTML di `homepage.tpl.html` definitivo
 
 ```html
-
 <jumbotron ...></jumbotron>
 <post-list items="ctrl.news"></post-list>
-
 ```
 
-> TIP: invece di passare ogni singola proprietà di <jumbotron> si potrebbe passare l'intero oggetto: `<jumbotron  link="{{ctrl.introObj}}"></jumbotron>`. In questo scenario è preferibile l'utilizzo del prefisso `<`
+> TIP: invece di passare ogni singola proprietà di <jumbotron> si potrebbe passare l'intero oggetto come mostrato di seguito. In questo scenario, all'interno della direttiva è preferibile l'utilizzo del prefisso `<`. Esempio:
+
+```html
+<jumbotron config="{{ctrl.introObj}}"></jumbotron>
+```
 
 
 ## NEWS Update
 
 Nella view e nel template della sezione News si utilizzano direttive e servizi creati nei precedenti step:
 
-Il controller della view inietta e utilizza il servizio `NewsService`:
+Il controller della view dovrà quindi iniettare e utilizzare il servizio `NewsService`:
 
 `components/news/NewsCtrl.js`:
 
@@ -353,7 +355,7 @@ angular.module('demoApp')
 
 ```
 
-Il template HTML della sezione News può includere la direttiva `<post-link>` al posto del markup inserito in precedenza, utilizzando anche il parametro `search` (utilizzato per filtrare i dati in base ad una stringa di ricerca) che in Home non era invece necessaria:
+Il template HTML includerà invece la direttiva `<post-link>`, utilizzando anche il parametro `search` per filtrare i dati in base ad una stringa di ricerca:
 
 `components/news/news.tpl.html`:
 
