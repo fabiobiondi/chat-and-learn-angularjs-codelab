@@ -48,6 +48,7 @@ I webinar su AngularJS 1.x si focalizzano principalmente sull'utilizzo del frame
 
 Tra le più eclatanti, mi sento di segnalare:
 
+* la cartella `bower_components` non dovrebbe essere "versionata" (ma a scopo didattico, per coloro che non utilizzano Bower, ho deciso di versionare tutti i files necessari al funziamente degli script)
 * l'utilizzo di IIFE (Immediately Invoked Function Expression)
 * `use strict`
 * `$inject` o [inline array annotation](https://docs.angularjs.org/guide/di) per la gestione delle dipendenze
