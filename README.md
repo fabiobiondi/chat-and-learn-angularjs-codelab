@@ -19,23 +19,25 @@ Language: **italian**
 
 Video: [Introduzione ad AngularJS](https://www.youtube.com/watch?v=2XMjpY9nauc)
 
-Cartella: `1-static-template`
+Source static template: `1-static-template`
 
-Cartella: `2-angular-app`
+Source Angular App: `2-angular-app`
 
 
 ### 2. Applicazioni component-based in AngularJS
 
 Video: presto disponibile
 
-Cartella: `3-component-based-app`
+Source e DOC: `3-component-based-app`
 
 
-### 3. custom directives
+### 3. custom directives (sezione 'Report')
 
 Video: presto disponibile
 
-Cartella: `4-reports`
+Source: `3-component-based-app`
+
+DOC: `4-reports`
 
 
 ---
