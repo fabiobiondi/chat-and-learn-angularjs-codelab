@@ -40,7 +40,7 @@ Cartella: `4-reports`
 
 ---
 
-BEST PRACTICES
+### BEST PRACTICES
 
 I webinar su AngularJS 1.x si focalizzano principalmente sull'utilizzo del framework e non integrano molte delle best practices e convenzioni che tipicamente si dovrebbero utilizzare durante lo sviluppo di web application Angular.
 
