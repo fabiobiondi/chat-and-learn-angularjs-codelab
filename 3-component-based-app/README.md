@@ -1,6 +1,7 @@
 # From Angular Spaghetti to Components
 
 Template di partenza -> cartella: `/2.angular-app`
+
 Template finale -> cartella: `/3.component-based-app`
 
 
