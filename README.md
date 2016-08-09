@@ -36,3 +36,20 @@ Cartella: `3-component-based-app`
 Video: presto disponibile
 
 Cartella: `4-reports`
+
+
+---
+
+BEST PRACTICES
+
+I webinar su AngularJS 1.x si focalizzano principalmente sull'utilizzo del framework e non integrano molte delle best practices e convenzioni che tipicamente si dovrebbero utilizzare durante lo sviluppo di web application Angular.
+
+Tra le più eclatanti, mi sento di segnalare:
+
+* l'utilizzo di IIFE (Immediately Invoked Function Expression)
+* `use strict`
+* `$inject` o [inline array annotation](https://docs.angularjs.org/guide/di) per la gestione delle dipendenze
+* Utilizzare automation tools (ad es. Gulp, Grunt, Webpack,...) per la generazione delle build: concat, minification, uglify/mangle, ngAnnotate, ecc.
+* organizzazione di cartelle e files adeguata alla tipologia del progetto
+* indentazione codice
+* e potrei continuare. Consiglio di seguire le ottime (e più seguite) styleguides di [John Papa](https://github.com/johnpapa/angular-styleguide)
